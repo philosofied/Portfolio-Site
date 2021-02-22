@@ -1,0 +1,77 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Page</title>
+    <link href="CSS/styles.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sofia">
+
+</head>
+<body>
+    <header class="page-header">
+        <h1>Phillip Flores</h1>
+        <nav class="main-navigation page-header__item">
+        <ul role="menubar" class="navigation-list">
+            <li role="presentation">
+            <a href="index.html" role="menuitem" class="navigation-list__item ">Home</a>
+            </li>
+            <li role="presentation">
+            <a href="about.html" role="menuitem" class="navigation-list__item">About Me</a>
+            </li>
+            <li role="presentation">
+            <a href="work.html" role="menuitem" class="navigation-list__item navigation-list__item--active">Work</a>
+            </li>
+            <li role="presentation">
+        <a href="contact.html" role="menuitem" class="navigation-list__item">Contact</a>
+            </li>
+        </ul>
+        </nav>
+    </header>
+    
+    <main>
+        <div class="ContactMeSection">
+            <h1> Contact me</h1>
+            <a href="mailto:phil.flrs@gmail.com">phil.flrs@gmail.com</a><br>
+            tel <a href="tel:+1111111111">1111111111</a><br> 
+        </div>        
+        <!-- contact form -->
+        <div class="ContactForm">
+            <form action="" method="post">
+                <label for="firstName">First Name</label>
+                <br>
+                <input type="text" id="firstName" name="First Name" placeholder="Your first name goes here" required>
+                <br>
+                <label for="lastName">Last Name</label>
+                <br>
+                <input type="text" id="lastName" name="Last Name" placeholder="Your last name goes here">
+                <br>
+                <label for="tel">Tel</label>                
+                <br>
+                <input type="tel" pattern="\d{3}[\-]\d{3}[\-]\d{4}" id="tel" name="phone number" placeholder="telephone">
+                <br>
+                <label class="standard-label" for="contact-email">Email: </label>
+                <br>
+                <input type="email" id="contact-email" required>
+                <br>
+                <label for="textArea" class="standard-label">Message: </label>
+                <br>
+                <textarea id="textArea" name="Text area" maxlength="240" required placeholder="write me something nice:)"></textarea>
+                <input type="submit" value="Send message" class="button">
+            </form>
+        </div>
+        <!-- contact form ends -->
+    </main>
+
+    <footer class="page-footer">
+        <p>Find me on</p>
+        <div class="social-media">
+            <img src="img/github-brands.svg" alt="Github">
+            <img src="img/linkedin-brands.svg" alt="LinkedIn">
+            <img src="img/instagram-brands.svg" alt="Instagram">
+        </div>
+    </footer>
+<script src="js/tota11y.min.js"></script>    
+</body>
+</html>
