@@ -1,4 +1,10 @@
-/* come back to the css chapter */
+/*
+* Prefixed by https://autoprefixer.github.io
+* PostCSS: v7.0.29,
+* Autoprefixer: v9.7.6
+* Browsers: last 4 version
+*/
+
 
 /* defined colors */
 :root {
@@ -13,7 +19,8 @@
 /* end defined colors */
 
 *{
-    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
     
 }
 /* button and link effects */
@@ -32,7 +39,11 @@
     border-radius: 3px;
     /* width of the border, type, color */
     border-bottom: 2px solid rgba(0, 0, 0, 0.3);
-    transition-duration: 0.2s;
+    -webkit-transition-duration: 0.2s;
+         -o-transition-duration: 0.2s;
+            transition-duration: 0.2s;
+    -webkit-transition-property: opacity;
+    -o-transition-property: opacity;
     transition-property: opacity;
 }
 
@@ -135,17 +146,23 @@ h3 {
     color: var(--clay);
 }
 .page-header{
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
     width: 100%;
     padding: 10px;
 }
 
 .page-header__item{
-    flex: 0 1 200px;
+    -webkit-box-flex: 0;
+        -ms-flex: 0 1 200px;
+            flex: 0 1 200px;
 }
 
 .page-header .page-header__item:last-child{
-    flex-grow: 1;
+    -webkit-box-flex: 1;
+        -ms-flex-positive: 1;
+            flex-grow: 1;
     text-align: right;
 }
 
@@ -160,18 +177,27 @@ h3 {
 
 /* works container settings */
 .grid{
+    display: -ms-grid;
     display: grid;
+    -ms-grid-columns: 1fr 20px 1fr 20px 1fr;
     grid-template-columns: 1fr 1fr 1fr;
     grid-gap: 20px;
 }
 .grid__item:last-child{
-    grid-column-start: 3;
+    -ms-grid-column: 3;
+        grid-column-start: 3;
+    -ms-grid-column-span: 0;
     grid-column-end: 3;
-    grid-row-start: 1 ;
+    -ms-grid-row: 1 ;
+        grid-row-start: 1 ;
+    -ms-grid-row-span: 0;
     grid-row-end: 1;
 }
 .grid__item:last-child{
+    -ms-grid-column: 3;
     grid-column: 3/3;
+    -ms-grid-row: 1;
+    -ms-grid-row-span: 2;
     grid-row: 1/3;
 }
 
@@ -190,8 +216,10 @@ section{
 
 @supports (display: grid) {
     .grid {
+        display: -ms-grid;
         display: grid;
         /* grid-template-columns: 300px 300px 300px; fractions are better than pixels - they are responsive */
+        -ms-grid-columns: 1fr 20px 1fr 20px 1fr;
         grid-template-columns: 1fr 1fr 1fr;
         grid-gap: 20px;
         margin: 0;
@@ -209,12 +237,16 @@ section{
 .page-footer{
     clear: both;
     /* display: flex; is keeping the social icons on the left, y tho? */
-    flex-direction: column;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
     text-align: center;
 }
 
 @media all and (max-width: 500px){
     .grid{
+        -ms-grid-columns: 1fr;
         grid-template-columns: 1fr;
         grid-gap: 10px;
     }
@@ -228,6 +260,7 @@ section{
 }
 @media all and (min-width:500px)and(max-width:750px){
     .grid{
+        -ms-grid-columns: 1fr 10px 1fr;
         grid-template-columns: 1fr 1fr;
         grid-gap: 10px;
     }
@@ -240,6 +273,14 @@ section{
     }
 }
 /*  about page css animations */
+@-webkit-keyframes color-change{
+    from {
+        fill: #edc655
+    }
+    to{
+        fill: #f76414
+    }
+}
 @keyframes color-change{
     from {
         fill: #edc655
@@ -250,37 +291,70 @@ section{
 }
 
 .sun {
-    animation: 4s color-change infinite alternate linear;
+    -webkit-animation: 4s color-change infinite alternate linear;
+            animation: 4s color-change infinite alternate linear;
 }
 
 .cloud-front {
-    animation-duration: 30s;
-    animation-name: cloud-move;
-    animation-iteration-count: infinite;
-    animation-direction: alternate;
-    animation-timing-function: ease;
+    -webkit-animation-duration: 30s;
+            animation-duration: 30s;
+    -webkit-animation-name: cloud-move;
+            animation-name: cloud-move;
+    -webkit-animation-iteration-count: infinite;
+            animation-iteration-count: infinite;
+    -webkit-animation-direction: alternate;
+            animation-direction: alternate;
+    -webkit-animation-timing-function: ease;
+            animation-timing-function: ease;
+}
+
+@-webkit-keyframes cloud-move {
+    from {
+    -webkit-transform: translate(0, 50px);
+            transform: translate(0, 50px);
+    }
+    to {
+    -webkit-transform: translate(200px, 50px);
+            transform: translate(200px, 50px);
+    }
 }
 
 @keyframes cloud-move {
     from {
-    transform: translate(0, 50px);
+    -webkit-transform: translate(0, 50px);
+            transform: translate(0, 50px);
     }
     to {
-    transform: translate(200px, 50px);
+    -webkit-transform: translate(200px, 50px);
+            transform: translate(200px, 50px);
+    }
+}
+
+@-webkit-keyframes cloud-move-reverse {
+    from {
+    -webkit-transform: translate(446px, 48px);
+            transform: translate(446px, 48px);
+    }
+    to {
+    -webkit-transform: translate(100px, 48px);
+            transform: translate(100px, 48px);
     }
 }
 
 @keyframes cloud-move-reverse {
     from {
-    transform: translate(446px, 48px);
+    -webkit-transform: translate(446px, 48px);
+            transform: translate(446px, 48px);
     }
     to {
-    transform: translate(100px, 48px);
+    -webkit-transform: translate(100px, 48px);
+            transform: translate(100px, 48px);
     }
 }
 
 .cloud-back {
-    animation: 34s cloud-move-reverse infinite alternate linear;
+    -webkit-animation: 34s cloud-move-reverse infinite alternate linear;
+            animation: 34s cloud-move-reverse infinite alternate linear;
 }
 
 
